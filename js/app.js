@@ -4,7 +4,7 @@ const btnGuardar = document.querySelector("[data-name='btn-guardar']");
 const textoTarea = document.querySelector("input[name='nueva-tarea']");
 const listadoTareas = document.querySelector("ul");
 const btnLimpiar = document.querySelector("#btn-limpiar")
-const btnsEliminar = document.querySelectorAll(".eliminar")
+let btnsEliminar = []
 
 btnGuardar.addEventListener("click", function(evento){
     console.log(textoTarea.value);
@@ -20,13 +20,31 @@ btnLimpiar.addEventListener("click", function(evento){
 })
 
 
-console.log(btnsEliminar);
+listadoTareas.addEventListener("click", function(evento){
+    console.log("Evento: ", evento.target);
 
-btnsEliminar.forEach(
-    function(elemento){
-        elemento.addEventListener("click", function (evento) {
-            evento.target.closest("li").outerHTML = ""
-        })
+    if (evento.target.tagName == "BUTTON") {
+        evento.target.closest("li").remove()
     }
-)
+
+    if (evento.target.tagName == "SPAN") {
+        alert(evento.target.textContent)
+    }
+    
+})
+
+/* setInterval(
+    function () {
+        btnsEliminar =  document.querySelectorAll(".eliminar")
+
+        btnsEliminar.forEach(
+            function(elemento){
+                elemento.addEventListener("click", function (evento) {
+                    evento.target.closest("li").outerHTML = ""
+                })
+            }
+        )
+    }
+    , 3000) */
+
 
