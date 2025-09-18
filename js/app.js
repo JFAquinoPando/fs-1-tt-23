@@ -25,7 +25,7 @@ btnGuardar.addEventListener("click", guardarTarea);
 
 btnLimpiar.addEventListener("click", function(evento){
     listadoTareas.innerHTML = ""
-    guardar("estados", "[]")
+    guardar("estados", [])
 })
 
 function recuperarTodo() {
