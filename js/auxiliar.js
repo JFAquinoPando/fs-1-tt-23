@@ -1,11 +1,12 @@
-var valor = 10000
+export var valor = 10000
 
-function guardar(clave, valor) {
+export function guardar(clave, valor) {
+    valor = JSON.stringify(valor)
     localStorage.setItem(clave, valor)
     return true
 }
 
-function recuperar(clave) {
-    return localStorage.getItem(clave)
+export function recuperar(clave) {
+    return JSON.parse(localStorage.getItem(clave))
 }
 
