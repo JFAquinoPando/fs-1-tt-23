@@ -24,8 +24,26 @@ export function guardarTarea(evento){
 btnGuardar.addEventListener("click", guardarTarea);
 
 btnLimpiar.addEventListener("click", function(evento){
-    listadoTareas.innerHTML = ""
-    guardar("estados", [])
+    Swal.fire({
+        title: "¿Deseas eliminar las tareas?",
+        showDenyButton: true,
+        showCancelButton: true,
+        confirmButtonText: "Borrar",
+        denyButtonText: `No borrar`
+    }).then(function(objeto){
+        if (objeto.isConfirmed || objeto.isDenied) {
+            Swal.fire({
+                title: "Borrado total",
+                text: objeto.isConfirmed ? "Hemos eliminado todo el contenido" : "Hemos mantenido todos los datos",
+                icon: objeto.isConfirmed ? "success" : "error"
+            });
+            if (objeto.isConfirmed) {
+                listadoTareas.innerHTML = "";
+                guardar("estados", []);
+            }
+        }
+        // Si se cancela, no hace nada
+    })
 })
 
 function recuperarTodo() {

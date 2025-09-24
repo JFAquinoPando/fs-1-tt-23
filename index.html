@@ -6,19 +6,21 @@
     <title>Document</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <script src="./js/app.js" type="module"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11" defer></script>
+
     <!-- Agregar notificación al crear tarea -->
 </head>
 <body class="bg-blue-950 text-gray-100">
     <section class="w-96 mx-auto mt-10 bg-gray-900 p-10">
-        <div>
+        <div class="flex gap-2">
             <input type="text" name="nueva-tarea" 
-                value = "Sacar al perro"
-                placeholder="Nueva tarea..." class="p-3 rounded-lg text-black">
-            <button class="p-3 bg-green-800 rounded-lg " data-name="btn-guardar">Guardar</button>
+                value = "Sacar al perro 🐶"
+                placeholder="Nueva tarea... ✍️" class="p-3 rounded-lg text-black">
+            <button class="p-3 bg-green-800 rounded-lg " data-name="btn-guardar">💾</button>
         </div>
-        <h3 class="text-gray-500 text-3xl mt-4">Tareas</h3>
+        <h3 class="text-gray-500 text-3xl mt-4">Tareas 📋</h3>
         <ul class="mt-4 pt-4"></ul>
-        <button class="w-full bg-red-800 rounded-lg mt-4" id="btn-limpiar">Limpiar todo</button>
+        <button class="w-full bg-red-800 rounded-lg mt-4" id="btn-limpiar">Limpiar todo 🗑️</button>
     </section>
 </body>
 </html>
