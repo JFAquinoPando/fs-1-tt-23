@@ -18,6 +18,17 @@ export function guardarTarea(evento){
     </li>`
     listadoTareas.insertAdjacentHTML("beforeend", tarea)
 
+    Toastify({
+        text: `Nueva tarea: ${textoTarea.value}`,
+        duration: 2500,
+        gravity: "bottom", // `top` or `bottom`
+        position: "right", // `left`, `center` or `right`
+        style: {
+            background: "linear-gradient(to right, crimson, black)",
+            color: "white"
+        }
+    }).showToast();
+
     guardar("estados", historicoTareas)
 }
 
