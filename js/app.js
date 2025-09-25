@@ -42,28 +42,27 @@ export function guardarTarea(evento){
 btnGuardar.addEventListener("click", guardarTarea);
 
 // Evento click para limpiar todas las tareas con confirmación SweetAlert2
-btnLimpiar.addEventListener("click", function(evento){
-    Swal.fire({
+btnLimpiar.addEventListener("click", async function(evento){
+    const objeto = await Swal.fire({
         title: "¿Deseas eliminar las tareas?",
         showDenyButton: true,
         showCancelButton: true,
         confirmButtonText: "Borrar",
         denyButtonText: `No borrar`
-    }).then(function(objeto){
-        // Si el usuario confirma o niega, muestra notificación y limpia si corresponde
-        if (objeto.isConfirmed || objeto.isDenied) {
-            Swal.fire({
-                title: "Borrado total",
-                text: objeto.isConfirmed ? "Hemos eliminado todo el contenido" : "Hemos mantenido todos los datos",
-                icon: objeto.isConfirmed ? "success" : "error"
-            });
-            if (objeto.isConfirmed) {
-                listadoTareas.innerHTML = "";
-                guardar("estados", []);
-            }
+    });
+    // Si el usuario confirma o niega, muestra notificación y limpia si corresponde
+    if (objeto.isConfirmed || objeto.isDenied) {
+        Swal.fire({
+            title: "Borrado total",
+            text: objeto.isConfirmed ? "Hemos eliminado todo el contenido" : "Hemos mantenido todos los datos",
+            icon: objeto.isConfirmed ? "success" : "error"
+        });
+        if (objeto.isConfirmed) {
+            listadoTareas.innerHTML = "";
+            guardar("estados", []);
         }
-        // Si se cancela, no hace nada
-    })
+    }
+    // Si se cancela, no hace nada
 })
 
 // Función para recuperar todas las tareas guardadas y mostrarlas en la lista

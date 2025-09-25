@@ -1,5 +1,5 @@
 import { calcularDescuento } from "./funciones.js";
 
 console.log(
-    calcularDescuento(289-9048, 9)
+    calcularDescuento(5_600_000, 50)
 );
